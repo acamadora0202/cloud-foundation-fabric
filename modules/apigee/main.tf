@@ -44,6 +44,7 @@ resource "google_apigee_environment" "environments" {
   display_name    = each.value.display_name
   description     = each.value.description
   deployment_type = each.value.deployment_type
+  type            = each.value.type
   api_proxy_type  = each.value.api_proxy_type
   dynamic "node_config" {
     for_each = try(each.value.node_config, null) != null ? [""] : []
